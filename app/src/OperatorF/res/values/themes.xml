@@ -6,6 +6,6 @@
     </style>
 
     <style name="Theme.Idworldtest" parent="Base.Theme.Idworldtest">
-        <item name="operatorColor">@color/black</item>
+        <item name="operatorColor">@color/orange</item>
     </style>
 </resources>
