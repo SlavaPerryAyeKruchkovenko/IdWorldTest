@@ -11,10 +11,11 @@ android {
         applicationId = "dev.kruchkovenko.id.world.test"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 101
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "id.world.test-${defaultConfig.versionName}(${versionCode})")
     }
     flavorDimensions += listOf("client", "store")
     productFlavors {

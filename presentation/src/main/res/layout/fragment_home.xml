@@ -4,21 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.client.HomeFragment"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".page.client.HomeFragment">
 
-    <TextView
-        android:id="@+id/operator_name"
+    <LinearLayout
+        android:id="@+id/operator_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         android:visibility="gone"
-        android:textColor="?attr/operatorColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/operator_test"
-        tools:visibility="visible" />
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/operator_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/operatorColor"
+            tools:text="@string/operator_test" />
+
+        <TextView
+            android:id="@+id/operator_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/location_margin_top"
+            android:text="@string/location_example"
+            android:textColor="?attr/operatorColor" />
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/loader"
