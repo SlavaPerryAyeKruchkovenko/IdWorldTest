@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF5733</color>
+    <color name="green">#33FF57</color>
+    <color name="blue">#3357FF</color>
+    <color name="pink">#FF33A1</color>
+    <color name="purple">#A133FF</color>
+    <color name="orange">#FF8C33</color>
+    <color name="toxic">#33FF8C</color>
+    <color name="purple_dark">#8C33FF</color>
+    <color name="ruby">#FF3333</color>
+    <color name="cyan">#33FFA1</color>
 </resources>

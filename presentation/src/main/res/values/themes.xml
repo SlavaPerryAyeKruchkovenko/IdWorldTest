@@ -1,0 +1,6 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.presentation" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="operatorColor">@color/test</item>
+    </style>
+</resources>
