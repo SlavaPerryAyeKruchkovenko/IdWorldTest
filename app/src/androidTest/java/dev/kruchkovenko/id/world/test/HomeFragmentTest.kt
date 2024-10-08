@@ -1,12 +1,14 @@
 package dev.kruchkovenko.id.world.test
 
 import android.graphics.Color
-import androidx.core.graphics.toColor
+import android.location.LocationListener
+import android.view.View
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import dev.kruchkovenko.id.world.data.feature.client.model.Client
 import dev.kruchkovenko.id.world.data.feature.client.repository.ClientRepositoryImpl
 import dev.kruchkovenko.id.world.domain.feature.client.useCase.GetClientNameImpl
+import dev.kruchkovenko.id.world.presentation.feature.location.listener.ClientLocationListener
 import dev.kruchkovenko.id.world.presentation.page.client.ClientViewModel
 import dev.kruchkovenko.id.world.presentation.page.client.HomeFragment
 import org.junit.Test
@@ -37,14 +39,20 @@ class HomeFragmentTest : KoinTest {
             val testModule = module {
                 single { client }
                 viewModel { ClientViewModel(GetClientNameImpl(ClientRepositoryImpl(get()))) }
+                single<LocationListener> { ClientLocationListener(get()) }
             }
             startKoin {
                 modules(testModule)
             }
-            val scenario = launchFragmentInContainer<HomeFragment>(themeResId = themeId)
+            val scenario = launchFragmentInContainer<HomeFragment>(
+                themeResId = themeId,
+                fragmentArgs = HomeFragment.createArgs(true)
+            )
             scenario.onFragment {
                 val curColor = it.binding.operatorName.currentTextColor
                 val curText = it.binding.operatorName.text.toString()
+                assertEquals(View.VISIBLE, it.binding.operatorContainer.visibility)
+                assertEquals(View.GONE, it.binding.loader.visibility)
                 assertEquals(color, curColor)
                 assertEquals(client.name, curText)
             }
